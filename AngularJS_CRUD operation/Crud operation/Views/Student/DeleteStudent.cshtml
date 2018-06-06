@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Delete Student";
+}
+
+<table><tr><td height="10px"></td></tr></table>
+
+<table cellpadding="4" cellspacing="4" width="70%" align="center" style="background-color: skyblue; border:solid 2px red; padding-top:20px;">
+    <tr><td colspan="3" style="background-color:gray; font-size:18pt; font-weight:bold; height:30px; text-align:center;">Delete Student Information</td></tr>
+    <tr>
+
+        <td style="text-align:right;width:45%">Student ID</td>
+        <td>{{Students.studentID}}  </td>
+    </tr>
+    <tr>
+
+        <td style="text-align:right;">Name # </td>
+        <td> {{Students.name}}  </td>
+    </tr>
+    <tr>
+        <td style="text-align:right;">Email # </td>
+        <td>{{Students.email}}  </td>
+    </tr>
+    <tr>
+        <td style="text-align:right;">Class # </td>
+        <td>{{Students.class}}  </td>
+    </tr>
+    <tr>
+        <td style="text-align:right;">City # </td>
+        <td>{{Students.city}}  </td>
+    </tr>
+    <tr>
+        <td style="text-align:right;">DOB # </td>
+        <td>{{Students.dob}}  </td>
+    </tr>
+    <tr>
+        <td style="text-align:right;">Gender # </td>
+        <td>{{Students.gender}}  </td>
+    </tr>
+    <tr>
+        <td style="text-align:right;">Mark # </td>
+        <td>{{Students.mark}}  </td>
+    </tr>
+    <tr>
+        <td style="text-align:right;">MobileNo # </td>
+        <td>{{Students.MobileNo}}  </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input type="button" value="Delete" ng-click="delete()" />
+        </td>
+    </tr>
+
+</table>
+
+

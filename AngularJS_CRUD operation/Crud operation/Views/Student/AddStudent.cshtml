@@ -1,0 +1,242 @@
+﻿@{
+    ViewBag.Title = "Add New Student";
+}
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-sanitize.js"></script>
+
+<!-- ui-select files -->
+<script src="~/MyScripts/select.js"></script>
+<link href="~/MyScripts/select.css" rel="stylesheet" />
+<script type="text/javascript" src="@Url.Content("~/Scripts/angular.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/MyScripts/Module.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/MyJs/ng-tags-input.min.js")"></script>
+<script src="~/MyScripts/demo.js"></script>
+<script src="~/MyScripts/AddStudentController.js"></script>
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+<style>
+    body {
+        padding: 15px;
+    }
+
+    .select2 > .select2-choice.ui-select-match {
+        /* Because of the inclusion of Bootstrap */
+        height: 29px;
+    }
+
+    .selectize-control > .selectize-dropdown {
+        top: 36px;
+    }
+</style>
+
+
+<table><tr><td height="10px"></td></tr></table>
+@*<div ng-controller="MainCtrl">*@
+    <table cellpadding="4" cellspacing="4" width="70%" align="center" style="background-color: skyblue;
+border:solid 2px red; padding-top:20px;">
+        <tr>
+            <td colspan="3" style="background-color:gray; font-size:18pt;
+font-weight:bold; height:30px; text-align:center;">
+                Add New Student
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:right;width:40%">Name</td>
+            <td><input type="text" ng-model="Name" />  </td>
+        </tr>
+        @*<tr>
+                <td style="text-align:right;">Email</td>
+                <td><input type="email" ng-model="Email" />  </td>
+            </tr>
+            <tr>
+                <td style="text-align:right;">Class</td>
+                <td><input type="text" ng-model="Class" />  </td>
+            </tr>*@
+        <tr>
+            <td style="text-align:right;">City</td>
+            <td>
+                <select name="dropdown" ng-model="City" data-ng-options="x.cityname as x.cityname for x in CityLists | orderBy:'cityname'" style="width:40%"></select>
+                {{City}}
+            </td>
+            @*<td>
+                    <select name="dropdown" ng-model="City" data-ng-options="c.name as c.name for c in cars | orderBy:'name'"></select>
+                    {{City}}
+                </td>*@
+            @*<td>
+                    <select name="dropdown">
+                        <option ng-model="City" ng-repeat="x in CityLists" ng-value="x.cityname">{{x.cityname}}</option>
+                    </select>
+                    {{City}}
+                </td>*@
+
+            @*<td>
+                    <select name="dropdown" multiple>
+                        <option data-ng-repeat="x in CityLists | orderBy:'cityname'" ng-value="x.cityname">
+                            {{x.cityname}}
+                        </option>
+                    </select>
+                    {{City}}
+                </td>*@
+        </tr>
+        <tr>
+            <td style="text-align:right;">Qualification</td>
+            <td>
+                @*<select multiple="multiple" ng-model="City1" data-ng-options="x.cityname for x in CityLists" value="{{x.id}}" ng-selected="{{City1.indexOf(x.id.toString())!=-1}}">{{x.cityname}}></select>
+                    {{City1}}*@
+                @*<select multiple="" name="multiple" id="id" ng-model="City1">
+                        <option ng-repeat=" x in CityLists" value="{{x.cityname}}">{{x.cityname}}</option>
+                    </select>
+                    {{City1}}*@
+                <select multiple="multiple" ng-model="Qualification">
+                    <option ng-repeat="x in qualifications" value="{{x.qid}}">
+                        {{x.type}}
+                    </option>
+                </select>
+                {{Qualification}}
+                @*<select multiple="multiple" ng-model="City1">
+                        <option ng-repeat="x in CityLists" value="{{x.cityname}}">
+                            {{x.cityname}}
+                        </option>
+                    </select>*@
+            </td>
+        </tr>
+        @*<tr>
+            <td style="text-align:right;">Resume</td>
+            <td>
+                <input type="file" ng-model="Resume" />
+            </td>
+        </tr>*@
+        <tr>
+            <td style="text-align:right;">DOB</td>
+            <td><input type="date" ng-model="DOB" />  </td>
+        </tr>
+        <tr>
+            <td style="text-align:right;">Gender</td>
+            <td>
+                <input type="radio" ng-model="Gender" value="Male" checked />Male
+                <input type="radio" ng-model="Gender" value="Female" />FeMale
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:right;">Mark</td>
+            <td><input type="text" ng-model="Mark" />  </td>
+        </tr>
+        <tr>
+            <td style="text-align:right;">MobileNo</td>
+            <td><input type="tel" ng-model="MobileNo" />  </td>
+        </tr>
+        @*<tr>
+            <td style="text-align:right;">Hobbies</td>
+            <td>*@
+        @*<span ng-repeat="fruit in Fruits">
+                <label for="chkCustomer_{{fruit.FruitId}}">
+                    <input id="chkCustomer_{{fruit.FruitId}}" type="checkbox" ng-model="fruit.Selected" />
+                    {{fruit.Name}}
+                </label>
+            </span>*@
+        @*<span ng-repeat="x in hobbies">
+                <input type="checkbox" ng-model="x.Selected" />
+                <span>{{x.name}}</span>
+            </span>*@
+        @*<span ng-repeat="x in hobbies">
+                <input type="checkbox" ng-model="x.hobbies" />
+                <label for="{{x.name}}">{{x.name}}</label>{{x.hobbies}}
+            </span>*@
+        @*<label ng-repeat="x in CityLists">
+                <input type="checkbox" ng-model="CityLists" />
+                <label>{{x.cityname}}</label>{{CityLists}}
+            </label>*@
+        @*<span ng-repeat="x in hobbies">
+                <input type="checkbox" id="{{x}}" ng-model="x.hobbies" />
+                <label for="{{x}}">{{x}}</label>
+            </span>*@
+        @*</td>
+            </tr>*@
+        <tr>
+            <td style="text-align:right;">Role</td>
+            <td>
+                @*<input type="checkbox" ng-model="selectedAll" ng-click="checkAll()" />Check All*@
+                <span ng-repeat="r in roles">
+                    <input type="checkbox" ng-model="r.Selected" />
+                    <span>{{r.name}}</span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:right; width:10%">Tag</td>
+            <td>
+                @*<tags-input ng-model="tags" tags-change-to="myTags"></tags-input>*@
+                <tags-input ng-model="Tag" placeholder="Add a Name" use-strings="true" on-tag-removed="tagRemoved($tag)" min-length="1" max-length="10" max-results-to-show="5">
+                    <auto-complete min-length="1" source="loadNames($query)" debounce-delay="0" max-results-to-show="5"></auto-complete>
+                </tags-input>
+                <span>Model: {{Tag}}</span>
+                <span>Log: {{log}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:right;">Single Select Tag</td>
+            <td>
+                <ui-select multiple ng-model="multipleDemo.colors" theme="select2" use-strings="true" ng-disabled="disabled" style="width: 300px;">
+                    <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+                    <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                        {{color}}
+                    </ui-select-choices>
+                </ui-select>
+                <p>Selected: {{multipleDemo.colors}}</p>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align:right;">Multiple Select Tag</td>
+            <td>
+                <ui-select multiple ng-model="multipleDemo.colors2" theme="select2" ng-disabled="disabled" close-on-select="false" style="width: 300px;" title="Choose a color">
+                    <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+                    <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                        {{color}}
+                    </ui-select-choices>
+                </ui-select>
+                <p>Selected: {{multipleDemo.colors2}}</p>
+                
+            </td>
+        </tr>
+        @*<tr>
+            <td style="text-align:right;">Group Filter</td>
+            <td>
+                <ui-select ng-model="country.selected" theme="select2" ng-disabled="disabled" style="width: 300px;" title="Choose a country">
+                    <ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices group-by="firstLetterGroupFn" group-filter="['A','B','C']" repeat="country in countries | filter: $select.search">
+                        <span ng-bind-html="country.name | highlight: $select.search"></span>
+                        <small ng-bind-html="country.code | highlight: $select.search"></small>
+                    </ui-select-choices>
+                </ui-select>
+            </td>
+        </tr>*@
+        <tr>
+            <td style="text-align:right;">Country</td>
+            <td>
+                <ui-select ng-model="country.selected" theme="select2" use-strings="true" ng-disabled="disabled" style="width: 300px;" title="Choose a country">
+                    <ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices group-by="firstLetterGroupFn" group-filter="OrderFilterFn" repeat="country in countries | filter: $select.search" position='down'>
+                        <span ng-bind-html="country.name | highlight: $select.search"></span>
+                        <small ng-bind-html="country.code | highlight: $select.search"></small>
+                    </ui-select-choices>
+                </ui-select>
+                    <button type="button" ng-click="country.selected = undefined" class="btn btn-default">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                <p>Selected: {{country.selected}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="padding-left:7.5%">
+                <input type="button" value="Save" data-ng-click="save()" />
+
+            </td>
+        </tr>
+
+    </table>
+

@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <base href="/">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-sanitize.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+    <!-- ui-select files -->
+    <script src="~/MyScripts/select.js"></script>
+    <link href="~/MyScripts/select.css" rel="stylesheet" />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/Module.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyJs/ng-tags-input.min.js")"></script>
+    <script src="~/MyScripts/demo.js"></script>
+    <script src="~/MyScripts/AddStudentController.js"></script>
+
+    <!--
+      Selectize theme
+      Less versions are available at https://github.com/brianreavis/selectize.js/tree/master/dist/less
+    -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+    <style>
+        body {
+            padding: 15px;
+        }
+
+        .select2 > .select2-choice.ui-select-match {
+            /* Because of the inclusion of Bootstrap */
+            height: 29px;
+        }
+
+        .selectize-control > .selectize-dropdown {
+            top: 36px;
+        }
+    </style>
+</head>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Mycss/style.css" rel="stylesheet" />
+<link href="~/Mycss/ng-tags-input.css" rel="stylesheet" />
+<body data-ng-app="ApplicationModule">
+    <div>
+        <div>
+            <div>
+                <table cellpadding="5" cellspacing="6" width="100%" style="background-color:whitesmoke; border:solid 4px green;">
+                    <tr>
+                        <td style="border: solid 1px gray; width:50%; text-align:center;"><a href="showstudents"> Show All Students </a></td>
+                        <td style="border: solid 1px gray; width:50%; text-align:center;"><a href="addstudent"> Add New Student </a></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <div data-ng-view></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular-route.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/Module.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyJs/ng-tags-input.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyJs/ng-tags-input.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/Services.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/ShowStudentsController.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/AddStudentController.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/EditStudentController.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/DeleteStudentController.js")"></script>
+
+}
+
+
+

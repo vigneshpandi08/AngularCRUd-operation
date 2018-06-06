@@ -1,0 +1,48 @@
+﻿<table><tr><td height="10px"></td></tr></table>
+<table cellpadding="4" cellspacing="4" width="100%" align="center"
+       style="background-color: skyblue; border:solid 2px red; padding-top:20px;">
+    <thead>
+        <tr style="background-color:#F5F5F5;">
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Mark</th>
+            <th>MobileNo</th>
+            <th>Role</th>
+            <th>Tag</th>
+            <th>Qualification</th>
+            <th>Color</th>
+            <th>Color2</th>
+            <th>Country</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="Stud in students">
+            <td>{{Stud.studentID}}</td>
+            <td>{{Stud.name}}</td>
+            <td>{{Stud.city}}</td>
+            <td>{{Stud.dob | date : 'dd/MM/yyyy'}}</td>
+            <td>{{Stud.gender}}</td>
+            <td>{{Stud.mark}}</td>
+            <td>{{Stud.mobileNo}}</td>
+            <td>{{Stud.role}}</td>
+            <td>{{Stud.tag}}</td>
+            <td>{{Stud.qualification}}</td>
+            <td>{{Stud.color}}</td>
+            <td>{{Stud.color2}}</td>
+            <td>{{Stud.country}}</td>
+            <td><a ng-click="editStudent(Stud.studentID,$index)">Edit</a></td>
+            <td><a ng-click="deleteStudent(Stud.studentID)">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<ul data-ng-repeat="Studs in Students">
+    <li>{{Studs.MobileNo}}</li>
+</ul>
